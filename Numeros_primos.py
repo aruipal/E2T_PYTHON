@@ -1,10 +1,10 @@
 # Imprimir lista de primos del 1 al 100.
 
 def es_primo(num):
-    if num<2:
+    if num < 2:
         return False
     else:
-        for i in range(2,(num-1)):
+        for i in range(2, int(num-1)):
             if num % i == 0:
                 return False
         return True
