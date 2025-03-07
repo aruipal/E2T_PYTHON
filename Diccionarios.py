@@ -12,40 +12,71 @@ Necesitamos los siguientes métodos:
     - Método para buscar un contacto (por nombre)
     - Método para mostrar TODA la agnda
 '''
-class Agenda:
-
+class Agenda():
+    
     diccionario = {}
-
+    
     def __init__(self):
         pass
-        
-    def set_nombre(self,nombre):
-        self.nombre = nombre
 
-    def get_nombre(self):
+    def setnombre(self, nom_contacto):
+        self.nombre = nom_contacto
+    
+    def getnombre(self):
         return self.nombre
     
-    def set_numero(self,numero):
-        self.numero = numero
-    
-    def get_numero(self):
+    def setnumero(self, num_contacto):
+        self.numero = num_contacto
+
+    def getnumero(self):
         return self.numero
-    
+                 
     def introducir(self):
-        nom_contacto = input("Introduce el nombre del contacto: ")
-        num_contacto = int(input("Introduce el número del contacto: "))
+        
+        nom_contacto = input("Introduzca el nombre: ")
+        nom_contacto = nom_contacto.upper()
+        num_contacto = input("Introduzca el número: ")
         self.diccionario[nom_contacto] = num_contacto
-
+        print(f"El contacto {nom_contacto} con el teléfono {num_contacto} se ha añadido.")
+        
     def borrar(self):
-        nom_contacto = input("Introduce el contacto a borrar: ")
-        self.diccionario.pop(nom_contacto)
-
+        
+        nom_contacto = input("Introduzca el nombre que quiere eliminar: ")
+        nom_contacto = nom_contacto.upper()
+        if nom_contacto in self.diccionario:
+            self.diccionario.pop(nom_contacto)
+            print(f"El contacto {nom_contacto} se ha borrado.")
+        else:
+            print(f"El contacto {nom_contacto} no existe.")      
+        
     def buscar(self):
-        nom_contacto = input("Introduce el contacto a buscar: ")
-        print(self.diccionario[nom_contacto])
-
+        nom_contacto = input("Introduzca el nombre que quiera buscar: ")
+        nom_contacto = nom_contacto.upper()
+        if nom_contacto in self.diccionario:
+            print(f"El teléfono de {nom_contacto} es {self.diccionario[nom_contacto]}.")
+        else:
+            print(f"El contacto {nom_contacto} no existe.")
+           
     def mostrar(self):
         print(self.diccionario)
+        
+    def menu(agenda1):
+        while True:
+            print(f"\n-- MI AGENDA TELEFONICA --\n  1. Introducir un contacto. \n  2. Eliminar un contacto. \n  3. Buscar un contacto.\n  4. Mostrar agenda.\n  5. Salir.")
+            opcion=int(input(f"Elija una opción: "))
+            if opcion == 1:
+                agenda1.introducir()
+            elif opcion == 2:
+                agenda1.borrar()
+            elif opcion == 3:
+                agenda1.buscar()
+            elif opcion == 4:
+                agenda1.mostrar()
+            elif opcion == 5:
+                break
+    
+agenda1 = Agenda()
+agenda1.menu()
 
 
     
