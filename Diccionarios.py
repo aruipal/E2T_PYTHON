@@ -12,31 +12,30 @@ Necesitamos los siguientes métodos:
     - Método para buscar un contacto (por nombre)
     - Método para mostrar TODA la agnda
 '''
+import json
+
 class Agenda():
     
-    diccionario = {}
+    def __init__(self, archivo = "agenda.json"):
+        self.archivo = archivo
+        self.diccionario = self.cargar_agenda()
+                    
+    def guardar_agenda(self):
+        with open(self.archivo, "w") as f:
+            json.dump(self.diccionario, f, indent=4)
+            print("Agenda guardada correctamente.")
     
-    def __init__(self):
-        pass
-
-    def setnombre(self, nom_contacto):
-        self.nombre = nom_contacto
-    
-    def getnombre(self):
-        return self.nombre
-    
-    def setnumero(self, num_contacto):
-        self.numero = num_contacto
-
-    def getnumero(self):
-        return self.numero
-                 
+    def cargar_agenda(self):
+        with open(self.archivo, "r") as f:
+            return json.load(f)
+        
     def introducir(self):
         
         nom_contacto = input("Introduzca el nombre: ")
         nom_contacto = nom_contacto.upper()
         num_contacto = input("Introduzca el número: ")
         self.diccionario[nom_contacto] = num_contacto
+        self.guardar_agenda()
         print(f"El contacto {nom_contacto} con el teléfono {num_contacto} se ha añadido.")
         
     def borrar(self):
@@ -45,6 +44,7 @@ class Agenda():
         nom_contacto = nom_contacto.upper()
         if nom_contacto in self.diccionario:
             self.diccionario.pop(nom_contacto)
+            self.guardar_agenda()
             print(f"El contacto {nom_contacto} se ha borrado.")
         else:
             print(f"El contacto {nom_contacto} no existe.")      
@@ -58,9 +58,9 @@ class Agenda():
             print(f"El contacto {nom_contacto} no existe.")
            
     def mostrar(self):
-        print(self.diccionario)
-        
-    def menu(agenda1):
+        print(f"Hay {len(self.diccionario)} contactos en la agenda:\n {self.diccionario}")
+               
+    def menu(self):
         while True:
             print(f"\n-- MI AGENDA TELEFONICA --\n  1. Introducir un contacto. \n  2. Eliminar un contacto. \n  3. Buscar un contacto.\n  4. Mostrar agenda.\n  5. Salir.")
             opcion=int(input(f"Elija una opción: "))
@@ -74,6 +74,8 @@ class Agenda():
                 agenda1.mostrar()
             elif opcion == 5:
                 break
+            else:
+                print("Opción no válida.")
     
 agenda1 = Agenda()
 agenda1.menu()
