@@ -1,5 +1,6 @@
 import json 
 import os
+import datetime
 
 class Agenda:
 
@@ -51,14 +52,30 @@ class Agenda:
     def guardar_agenda(self):
         with open(self.archivo, "w") as f:
             json.dump(self.contactos, f, indent=4)
-            print("Agenda guardada correctamente.")
-
-def menu():
-    pass
-if __name__ == "__main__": # el archivo main es en el que estoy agenda.py
-    menu()
-
-
+            now = datetime.datetime.now()
+            formato_hora = now.strftime('%d %b %Y a las %H:%M')
+            print(f"Agenda guardada correctamente el: {formato_hora}.")
 
 agenda1 = Agenda()
-agenda1.mostrar_agenda()
+
+def menu():
+        while True:
+            print(f"\n-- MI AGENDA TELEFONICA --\n  1. Introducir un contacto. \n  2. Eliminar un contacto. \n  3. Buscar un contacto.\n  4. Mostrar agenda.\n  5. Guardar agenda.\n  6. Salir.")
+            opcion=int(input(f"Elija una opción: "))
+            if opcion == 1:
+                agenda1.meter_contacto()
+            elif opcion == 2:
+                agenda1.borrar_contactos()
+            elif opcion == 3:
+                agenda1.buscar_contactos()
+            elif opcion == 4:
+                agenda1.mostrar_agenda()
+            elif opcion == 5:
+                agenda1.guardar_agenda()
+            elif opcion == 6:
+                break
+            else:
+                print("Opción no válida.")
+
+if __name__ == "__main__": # el archivo main es en el que estoy agenda.py
+    menu()
