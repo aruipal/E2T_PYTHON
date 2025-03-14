@@ -6,7 +6,11 @@ class Agenda:
 
     def __init__(self, archivo="contactos.json"):
         self.archivo = archivo
-        self.contactos = self.cargar_contactos()
+        try:
+            self.contactos = self.cargar_contactos()
+        except Exception as e:
+            print(f"Error al iniciar la agenda.")
+            self.contactos = {}
 
     def cargar_contactos(self):
         if os.path.exists(self.archivo): # Si el archivo existe
@@ -78,4 +82,7 @@ def menu():
                 print("Opción no válida.")
 
 if __name__ == "__main__": # el archivo main es en el que estoy agenda.py
-    menu()
+    try:
+        menu()
+    except Exception as e:
+        print(f"Error al ejecutar: {e}")
