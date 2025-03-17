@@ -10,14 +10,18 @@ class Agenda:
             self.contactos = self.cargar_contactos()
         except Exception as e:
             print(f"Error al iniciar la agenda.")
-            self.contactos = {}
+            self.contactos = {} # Si no puede cargar crea un diccionario vacio
 
     def cargar_contactos(self):
-        if os.path.exists(self.archivo): # Si el archivo existe
-            with open(self.archivo, "r") as f: # Abrelo como lectura y alias f
-                return json.load(f) # Carga f que es self.archivo, archivo contactos.json
-        else:
-            return {} # si no existe el archivo json, crea un diccionario en self.contactos
+        try:
+            if os.path.exists(self.archivo): # Si el archivo existe
+                with open(self.archivo, "r") as f: # Abrelo como lectura y alias f
+                    return json.load(f) # Carga f que es self.archivo, archivo contactos.json
+            else:
+                return {} # si no existe el archivo json, crea un diccionario en self.contactos
+        except Exception as e:
+            print(f"Error al cargar contactos.")
+        
     
     def mostrar_agenda(self):
         if self.contactos: # Si hay contactos
@@ -80,7 +84,7 @@ def menu():
                 break
             else:
                 print("Opción no válida.")
-
+            
 if __name__ == "__main__": # el archivo main es en el que estoy agenda.py
     try:
         menu()
