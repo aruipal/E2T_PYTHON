@@ -46,7 +46,14 @@ productos3 = productos.find_one({"nombre":"ratón"})
 print(productos3)
 
 # Actualizar documento
-productos.update_one({"nombre":"ratón"},{"$set":{"precio":15}})    
+productos.update_one({"nombre":"ratón"},{"$set":{"precio":15}})
+productos.update_one({"nombre":"Laptop"},{"$set":{"precio":1300}})
+
+# Busqueda guardada en una variable y que se imprima
+laptop = productos.find_one({"nombre":"Laptop"})
+print(laptop)
 
 # Eliminar un documento    
 productos.delete_one({"nombre": "Tablet"})
+tablet = productos.find_one({"nombre":"Tablet"})
+print(tablet)
