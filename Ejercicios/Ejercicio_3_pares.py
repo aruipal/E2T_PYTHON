@@ -12,7 +12,7 @@ class par:
 
 lista = []            
 while True:
-    num = input("Introduce numeros y pulsa 0 para terminar: ")
+    num = input("Introduce numeros o pulsa 0 para terminar: ")
     if num == str(0):
         break
     else:
