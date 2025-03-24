@@ -14,11 +14,15 @@ class Estudiante:
         return self.calificacion
     
     def notas(self):
-        self.calificacion = float(input("Introduzca la nota: "))
-        if self.calificacion >= 6:
-            print(f"{self.nombre} está aprobado.")
-        else:
-            print(f"{self.nombre} está suspenso.")
+        try:
+            self.calificacion = float(input("Introduzca la nota: "))
+            if self.calificacion >= 6:
+                print(f"{self.nombre} está aprobado.")
+            else:
+                print(f"{self.nombre} está suspenso.")
+        except ValueError:
+            print("Introduzca un valor numérico.")
+            self.notas()
  
 estudiante1 = Estudiante("Antonio",23)
 estudiante1.notas()
