@@ -8,12 +8,18 @@ class Dado:
     def __init__(self):
         self.tirada = None
 
-    def tirar(self):
-        self.tirada = random.randint(1, 6)
+    def tirar(self, tipo):
+        if tipo == "d6":
+            self.tirada = random.randint(1, 6)
+        elif tipo == "d2":
+            self.tirada = random.randint(1, 2)
 
     def mostrar_resultado(self):
         print(f"El resultado es: {self.tirada}")
 
+
+tipo = input("Elige el tipo de dado (d2, d4, d6, d8, d10, d12, d20): ")
+
 dado1 = Dado()
-dado1.tirar()
+dado1.tirar(tipo)
 dado1.mostrar_resultado()
