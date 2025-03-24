@@ -5,10 +5,15 @@ EXTRA: Añade un selector de tipos de dados (d2, d4, d6, d8, d10, d12, d20)'''
 import random
 
 class Dado:
-
     def __init__(self):
-        pass
+        self.tirada = None
 
     def tirar(self):
+        self.tirada = random.randint(1, 6)
 
-    def mostrar(self):
+    def mostrar_resultado(self):
+        print(f"El resultado es: {self.tirada}")
+
+dado1 = Dado()
+dado1.tirar()
+dado1.mostrar_resultado()
