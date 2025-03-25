@@ -25,6 +25,6 @@ class Validador:
     
         return "La contraseña es válida."
 
-contraseña = input("Verificador de contraseñas.\n  - Introduce una contraseña: ")
+contraseña = input("Verificador de contraseñas:\n\t- Introduce una contraseña: ")
 comprobar1 = Validador(contraseña)
 print(comprobar1.comprobar())
