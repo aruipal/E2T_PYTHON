@@ -1,4 +1,7 @@
-class par:
+'''Crea una clase Numeros con un atributo que sea una lista de enteros.
+Incluye un método que devuelva solo los números pares de esa lista.'''
+
+class Numeros:
     
     def __init__(self,lista):
         self.lista = lista
@@ -18,5 +21,5 @@ while True:
     else:
         lista.append(int(num))
 
-par1 = par(lista)
+par1 = Numeros(lista)
 par1.pares()

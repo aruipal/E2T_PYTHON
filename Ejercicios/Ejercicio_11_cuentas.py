@@ -24,7 +24,7 @@ class CuentaBancaria:
             print(e)
     
     def consultar(self):
-        print(f"El titular {self.titular} tiene un saldo de {self.saldo}€.")
+        print(f"\nEl titular {self.titular} tiene un saldo de {self.saldo}€.")
 
 cuenta1 = CuentaBancaria("Antonio Ruiz", 1200)
 
@@ -36,9 +36,11 @@ def menu():
         elif opcion == 1:
             cuenta1.consultar()
         elif opcion == 2:
-            cuenta1.depositar(100)
+            retirar = int(input("Indique la cantidad a retirar: "))
+            cuenta1.retirar(retirar)
         elif opcion == 3:
-            cuenta1.retirar(1500)
+            ingresar = int(input("Indique la cantidad a ingresar: "))
+            cuenta1.depositar(ingresar)
         else:
             print("Opción incorrecta.")
 menu()     
