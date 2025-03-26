@@ -22,13 +22,6 @@ class Producto:
         print(f"TOTAL INVENTARIO: {sum(self.precio_total)}€.")
                    
               
-producto1 = Producto("laptop",665,5)
+producto1 = Producto("laptop",665,5)#3325
 producto1.meter_productos()
-
-producto2 = Producto("tablet",339,10)
-producto2.meter_productos()
-
-producto3 = Producto("PC",859,8)
-producto3.meter_productos()
-
-producto2.valor_total()
+producto1.valor_total()

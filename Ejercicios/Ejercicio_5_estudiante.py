@@ -6,6 +6,18 @@ class Estudiante:
     def __init__(self, nombre, edad):
         self.nombre = nombre
         self.edad = edad
+    
+    def set_nombre(self, nombre):
+        self.nombre = nombre
+        
+    def get_nombre(self):
+        return self.nombre
+    
+    def set_edad(self, edad):
+        self.edad = edad
+        
+    def get_edad(self):
+        return self.edad
    
     def set_calificacion(self,calificacion):
         self.calificacion = calificacion
@@ -17,12 +29,12 @@ class Estudiante:
         try:
             self.calificacion = float(input("Introduzca la nota: "))
             if self.calificacion >= 6:
-                print(f"{self.nombre} está aprobado.")
+                return "está aprobado."
             else:
-                print(f"{self.nombre} está suspenso.")
+                return "está suspenso."
         except ValueError:
-            print("Introduzca un valor numérico.")
-            self.notas()
+            return "Introduzca un valor numérico."          
  
-estudiante1 = Estudiante("Antonio",23)
-estudiante1.notas()
+estudiante1 = Estudiante("Antonio Ruiz",23)
+print(f"Nombre: {estudiante1.get_nombre()}, edad: {estudiante1.get_edad()}")
+print(estudiante1.notas())
