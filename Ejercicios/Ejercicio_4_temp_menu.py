@@ -1,3 +1,6 @@
+'''Diseña una clase ConversorTemperatura con métodos para convertir de Celsius a Fahrenheit y viceversa.
+Usa un constructor para inicializar una temperatura base.'''
+
 class ConversorTemperatura:
     
     def __init__(self,temp):
@@ -8,18 +11,18 @@ class ConversorTemperatura:
         return f"{self.temp} grados C son {round(far,2)} grados Fahrenheit."
         
     def fc(self):
-        cel = (self.temp * 5/9) - 32
+        cel = (self.temp - 32) * 5/9
         return f"{self.temp} grados F son {round(cel,2)} grados celcius."
     
 def menu():
     try:   
-        opcion = int(input("Selecciona conversión a realizar\n 1. De Celsius a Fahrenheit.\n 2. De Fahrenheit a Celsius. \nOpcion:"))
+        opcion = float(input("\nSelecciona conversión a realizar:\n - 1. De Celsius a Fahrenheit.\n - 2. De Fahrenheit a Celsius. \nOpcion:"))
         if opcion == 1:
-            temp = int(input("Introduce grados Celsius a convertir: "))
+            temp = float(input("Introduce grados Celsius a convertir: "))
             conversor1 = ConversorTemperatura(temp)
             print(conversor1.cf())
         elif opcion == 2:
-            temp = int(input("Introduce grados Fahrenheit a convertir: "))
+            temp = float(input("Introduce grados Fahrenheit a convertir: "))
             conversor1 = ConversorTemperatura(temp)
             print(conversor1.fc())
         else:
