@@ -25,3 +25,4 @@ class Producto:
 producto1 = Producto("laptop",665,5)#3325
 producto1.meter_productos()
 producto1.valor_total()
+
