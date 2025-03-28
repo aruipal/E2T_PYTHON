@@ -33,3 +33,5 @@ class Tarea:
         self.delete = input("Introduzca la tarea que quiere borrar: ")
         self.tareas.pop(self.delete)
         
+    def marcar_completa(self):
+        self.completar = 

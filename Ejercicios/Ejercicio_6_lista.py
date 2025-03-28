@@ -7,14 +7,27 @@ class Ordenador:
         self.lista = lista
 
     def ordena(self):
-        for i in range(len(lista)-1):
-            for j in range(len(lista)-1):
-                if lista[j] > lista[j+1]:
-                    num = lista[j]
-                    lista[j] = lista[j+1]
-                    lista[j+1] = num
+        for i in range(len(self.lista)-1):
+            for j in range(len(self.lista)-1):
+                if self.lista[j] > self.lista[j+1]:
+                    num = self.lista[j]
+                    self.lista[j] = self.lista[j+1]
+                    self.lista[j+1] = num
         return self.lista
-         
-lista = [10,5,6,3,12]
-ordena1 = Ordenador(lista)
-print(f"Lista ordenada: {ordena1.ordena()}")
+
+def ordena_numeros():    
+    try:
+        lista_num = []
+        while True:
+            numero = int(input("Introduce un número, o pulse 0 para salir: "))
+            if numero == 0:
+                ordena1 = Ordenador(lista_num)
+                print(f"Lista ordenada: {ordena1.ordena()}")
+                break
+            lista_num.append(numero)
+        
+    except ValueError:
+        print("Introduce solo números.")
+        ordena_numeros()
+           
+ordena_numeros()
