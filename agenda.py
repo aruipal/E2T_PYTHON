@@ -1,3 +1,18 @@
+'''
+diccionario = {clave:valor,clave2:valor} Las claves son unicas y no se pueden modificar (inmutable).
+
+Hacer una aplicación para tener una agenda de teléfonos.
+Crear la clase Agenda.
+Los teléfonos se guardarán en un diccionario con clave: nombre de contacto y
+valor: teléfono.
+Necesitamos los siguientes métodos:
+    -__init__ (por supuesto que siempre hace falta)
+    - Método para introducir nuevo contacto
+    - Método para borrar nuevo contacto (por nombre)
+    - Método para buscar un contacto (por nombre)
+    - Método para mostrar TODA la agnda
+'''
+
 import json 
 import os
 import datetime
