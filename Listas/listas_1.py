@@ -41,7 +41,3 @@ print(numeros[0:3])
 
 reverso = numeros[0:6:2] # del indice 0 al 6 con salto 2
 print(reverso)
-
-numeros = [1, 5, 8, 4, 7, 2, 9]
-reverso = numeros[2:6:-2]
-print(reverso)
