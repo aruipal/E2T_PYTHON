@@ -14,10 +14,10 @@ pygame.display.set_caption("Arkanoid")
 clock = pygame.time.Clock()
 
 # Cargar sonidos
-#pygame.mixer.init()
-#sound_bounce = pygame.mixer.Sound("bounce.wav")
-#sound_block = pygame.mixer.Sound("block_hit.wav")
-#sound_gameover = pygame.mixer.Sound("gameover.wav")
+pygame.mixer.init()
+sound_bounce = pygame.mixer.Sound("bounce.wav")
+sound_block = pygame.mixer.Sound("block_hit.wav")
+sound_gameover = pygame.mixer.Sound("gameover.wav")
 
 # Clase para la pala
 class Paddle(pygame.sprite.Sprite):
@@ -49,10 +49,10 @@ class Ball(pygame.sprite.Sprite):
         
         if self.rect.left <= 0 or self.rect.right >= WIDTH:
             self.vx = -self.vx
-            #sound_bounce.play()
+            sound_bounce.play()
         if self.rect.top <= 0:
             self.vy = -self.vy
-            #sound_bounce.play()
+            sound_bounce.play()
         
 # Clase para los bloques
 class Block(pygame.sprite.Sprite):
@@ -89,17 +89,17 @@ while running:
     # Colisión de la bola con la pala
     if pygame.sprite.collide_rect(ball, paddle):
         ball.vy = -ball.vy
-        #sound_bounce.play()
+        sound_bounce.play()
     
     # Colisión de la bola con los bloques
     hit_blocks = pygame.sprite.spritecollide(ball, blocks, True)
     if hit_blocks:
         ball.vy = -ball.vy
-        #sound_block.play()
+        sound_block.play()
     
     # Si la bola cae por debajo de la pantalla
     if ball.rect.top > HEIGHT:
-        #sound_gameover.play()
+        sound_gameover.play()
         running = False
     
     all_sprites.draw(screen)
