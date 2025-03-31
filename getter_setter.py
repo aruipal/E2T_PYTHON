@@ -1,3 +1,5 @@
+# Encapsulación mediante atributos privados __nombre...
+
 class Cuenta:
     def __init__(self,nom, sal, mon):
         self.__nombre = nom
