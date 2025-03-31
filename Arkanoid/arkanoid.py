@@ -11,7 +11,7 @@ RED = (255, 0, 0)
 # Inicialización de pygame
 pygame.init()
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
-pygame.display.set_caption("Arkanoid")
+pygame.display.set_caption("Arkanoid by Palmer")
 clock = pygame.time.Clock()
 
 # Cargar sonidos
