@@ -23,14 +23,18 @@ def menu():
     while True:
         try:
             print("\n>>> Calculadora <<<\n 1.Sumar\n 2.Restar\n 3.Multiplicar\n 4.Dividir\n 5.Salir")
+            
             opcion = int(input("Elige la opción: "))
-            if opcion == 5:
+            if opcion > 5:
+                print("Operación no válida introduce un núm del 1 al 5.")
+            elif opcion == 5:
                 break
+
             num1 = float(input("Introduce un número: "))
             num2 = float(input("Introduce otro número: "))
         
             calculadora1 = Calculadora(num1,num2)
-    
+
             if opcion == 1:
                 calculadora1.sumar()
             elif opcion == 2:
@@ -39,8 +43,7 @@ def menu():
                 calculadora1.multiplicar()
             elif opcion == 4:
                 calculadora1.dividir()
-            else:
-                print("Operación no válida introduce un núm del 1 al 5.")
+
         except ValueError:
             print("Opción incorrecta, introduce un NUMERO!!!")
         

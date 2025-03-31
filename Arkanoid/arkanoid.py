@@ -1,5 +1,6 @@
 import pygame
 import random
+import datetime
 
 # Configuración de pantalla
 WIDTH, HEIGHT = 800, 600
@@ -15,9 +16,9 @@ clock = pygame.time.Clock()
 
 # Cargar sonidos
 pygame.mixer.init()
-sound_bounce = pygame.mixer.Sound("bounce.wav")
-sound_block = pygame.mixer.Sound("block_hit.wav")
-sound_gameover = pygame.mixer.Sound("gameover.wav")
+sound_bounce = pygame.mixer.Sound("Arkanoid/bounce.wav")
+sound_block = pygame.mixer.Sound("Arkanoid/block_hit.wav")
+sound_gameover = pygame.mixer.Sound("Arkanoid/gameover.wav")
 
 # Clase para la pala
 class Paddle(pygame.sprite.Sprite):
@@ -100,6 +101,7 @@ while running:
     # Si la bola cae por debajo de la pantalla
     if ball.rect.top > HEIGHT:
         sound_gameover.play()
+        pygame.time.delay(5000)
         running = False
     
     all_sprites.draw(screen)
